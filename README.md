@@ -1,100 +1,126 @@
 # Calculator App
 
-## Overview
-The Calculator App is a Java application that provides a graphical user interface (GUI) for performing basic arithmetic calculations. It uses Swing components for the GUI and includes features such as number input, arithmetic operations, and result display.
+A simple Java Swing-based calculator application with a graphical user interface for performing basic arithmetic operations.
 
-Checkout the full tutorial [here](https://www.youtube.com/watch?v=IuGh1pXLfhc)
+## Features
 
-## Files
+- ✨ Clean and intuitive GUI built with Java Swing
+- ➕ Basic arithmetic operations: Addition, Subtraction, Multiplication, Division
+- 🔢 Number input via clickable buttons (0-9)
+- 🎯 Real-time result display
+- 📐 Organized code structure with service and constant layers
 
-1. **CalculatorApp.java**: This file contains the main class `CalculatorApp`, which serves as the entry point for the application. It creates an instance of the `CalculatorGui` class and makes the GUI visible.
+## Quick Start
 
-2. **CalculatorGui.java**: This file contains the `CalculatorGui` class, which extends `JFrame` and represents the main GUI window of the application. It sets up the GUI components, including a display field for showing the numbers and results, and buttons for number input and arithmetic operations. It also handles button click events to perform the calculations.
+### Prerequisites
 
-3. **CalculatorService.java**: This file contains the `CalculatorService` class, which provides the actual arithmetic calculations for the application. It includes methods for addition, subtraction, multiplication, and division.
+- Java Development Kit (JDK) 8 or higher
 
-4. **CommonConstants.java**: This file contains the `CommonConstants` class, which defines common constants used in the application, such as the application name, the size of the GUI window, and the configurations for the display field and buttons.
+### How to Run
 
-## Usage
-
-To use the Calculator App, follow these steps:
-
-1. Compile the Java files:
+1. Clone the repository:
 ```bash
-javac -d . src\CalculatorApp.java src\gui\CalculatorGui.java src\service\CalculatorService.java src\constants\CommonConstants.java
+git clone https://github.com/ziadhm/Calculator.git
+cd Calculator
 ```
 
-2. Run the compiled Java program:
+2. Compile all Java files:
+```bash
+javac -d . src/CalculatorApp.java src/gui/CalculatorGui.java src/service/CalculatorService.java src/constants/CommonConstants.java
+```
+
+3. Run the application:
 ```bash
 java CalculatorApp
 ```
 
-3. The Calculator App GUI window will appear. You can enter numbers and perform arithmetic operations using the buttons.
+The Calculator GUI window will appear, and you can start performing calculations!
 
-4. To enter numbers, click the respective number buttons (0-9).
+## Project Structure
 
-5. To perform arithmetic operations, click the corresponding operator buttons (+, -, x, /). The current number in the display field will be used as the first operand.
+```
+Calculator/
+├── src/
+│   ├── CalculatorApp.java          # Main entry point
+│   ├── gui/
+│   │   └── CalculatorGui.java      # GUI implementation
+│   ├── service/
+│   │   └── CalculatorService.java  # Calculation logic
+│   └── constants/
+│       └── CommonConstants.java    # Application constants
+└── README.md
+```
 
-6. To calculate the result, click the "=" button. The result will be displayed in the display field.
+## Usage
 
-## Class Details
+1. **Enter Numbers**: Click the number buttons (0-9) to input values
+2. **Select Operation**: Click an operator button (+, -, ×, ÷)
+3. **Calculate Result**: Click the "=" button to display the result
+4. **Continue Calculating**: Use the result for further operations or start fresh
 
-### 1. CalculatorApp.java
+## Technical Details
 
-This class contains the `CalculatorApp` class, which serves as the entry point for the application.
+<details>
+<summary>Click to expand class documentation</summary>
 
-#### Methods
-- `main(String[] args)`: The main method creates an instance of `CalculatorGui` and makes the GUI visible.
+### CalculatorApp.java
 
-### 2. CalculatorGui.java
+Main entry point for the application.
 
-This class represents the main GUI window of the application.
+**Methods:**
+- `main(String[] args)`: Creates and displays the calculator GUI
 
-#### Constructors
-- `CalculatorGui()`: Constructs a new `CalculatorGui` object. It sets up the JFrame with the application name, size, and close operation. It then calls the `addGuiComponents()` method to add the GUI components.
+### CalculatorGui.java
 
-#### Methods
-- `addGuiComponents()`: This method sets up the GUI components, including a display field for showing numbers and results, and buttons for number input and arithmetic operations. It also sets up the layout using `SpringLayout` and adds event handling for button clicks.
+GUI implementation using Java Swing components.
 
-- `getButtonLabel(int buttonIndex)`: This method returns the label for the buttons based on the button index.
+**Constructor:**
+- `CalculatorGui()`: Initializes the JFrame with title, size, and components
 
-- `actionPerformed(ActionEvent e)`: This method handles button click events and performs the corresponding arithmetic calculations.
+**Methods:**
+- `addGuiComponents()`: Sets up display field, buttons, and layout using SpringLayout
+- `getButtonLabel(int buttonIndex)`: Returns button labels based on index
+- `actionPerformed(ActionEvent e)`: Handles button click events and calculations
 
-### 3. CalculatorService.java
+### CalculatorService.java
 
-This class provides the actual arithmetic calculations for the application.
+Handles arithmetic calculations.
 
-#### Methods
-- `setMathSymbol(char mathSymbol)`: Sets the mathematical symbol for the arithmetic operation.
+**Methods:**
+- `setMathSymbol(char mathSymbol)`: Sets the operation symbol
+- `setNum1(double num1)`: Sets first operand
+- `setNum2(double num2)`: Sets second operand
+- `add()`: Returns sum of operands
+- `subtract()`: Returns difference of operands
+- `multiply()`: Returns product of operands
+- `divide()`: Returns quotient of operands
 
-- `setNum1(double num1)`: Sets the first operand for the arithmetic operation.
+### CommonConstants.java
 
-- `setNum2(double num2)`: Sets the second operand for the arithmetic operation.
+Application-wide constants.
 
-- `add()`: Performs addition and returns the result.
+**Constants:**
+- `APP_NAME`: Application window title
+- `APP_SIZE`: Window dimensions [width, height]
+- `TEXTFIELD_LENGTH`: Display field length
+- `TEXTFIELD_FONTSIZE`: Display field font size
+- `TEXTFIELD_SPRINGLAYOUT_NORTHPAD`: Display field top padding
+- `TEXTFIELD_SPRINGLAYOUT_WESTPAD`: Display field left padding
+- `BUTTON_ROWCOUNT`: Number of button rows
+- `BUTTON_COLCOUNT`: Number of button columns
+- `BUTTON_COUNT`: Total button count
+- `BUTTON_FONTSIZE`: Button font size
+- `BUTTON_SPRINGLAYOUT_NORTHPAD`: Button panel top padding
+- `BUTTON_SPRINGLAYOUT_WESTPAD`: Button panel left padding
+- `BUTTON_HGAP`: Horizontal gap between buttons
+- `BUTTON_VGAP`: Vertical gap between buttons
 
-- `subtract()`: Performs subtraction and returns the result.
+</details>
 
-- `multiply()`: Performs multiplication and returns the result.
+## Contributing
 
-- `divide()`: Performs division and returns the result.
+Contributions are welcome! Feel free to submit issues or pull requests.
 
-### 4. CommonConstants.java
+## License
 
-This class contains common constants used in the application.
-
-#### Constants
-- `APP_NAME`: Represents the name of the application.
-- `APP_SIZE`: Represents the size of the main GUI window as an array of two integers: width and height.
-- `TEXTFIELD_LENGTH`: Represents the length of the display field.
-- `TEXTFIELD_FONTSIZE`: Represents the font size of the display field.
-- `TEXTFIELD_SPRINGLAYOUT_NORTHPAD`: Represents the north padding of the display field in the layout.
-- `TEXTFIELD_SPRINGLAYOUT_WESTPAD`: Represents the west padding of the display field in the layout.
-- `BUTTON_ROWCOUNT`: Represents the number of rows for the button grid.
-- `BUTTON_COLCOUNT`: Represents the number of columns for the button grid.
-- `BUTTON_COUNT`: Represents the total number of buttons.
-- `BUTTON_FONTSIZE`: Represents the font size of the buttons.
-- `BUTTON_SPRINGLAYOUT_NORTHPAD`: Represents the north padding of the button panel in the layout.
-- `BUTTON_SPRINGLAYOUT_WESTPAD`: Represents the west padding of the button panel in the layout.
-- `BUTTON_HGAP`: Represents the horizontal gap between buttons in the grid layout.
-- `BUTTON_VGAP`: Represents the vertical gap between buttons in the grid layout.
+This project is open source and available for educational purposes.
